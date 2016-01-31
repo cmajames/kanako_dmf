@@ -7,13 +7,21 @@ Inspired by:
     - http://pastebin.com/Xd9PyUEc
     - http://pastebin.com/CPk2Duhn
 
+## Development
+PyOpenGL framework (for portability) __
+Original implementation of damaku engine
+Maybe a new file format(?)
+
+## Build
+See [Development](#Development)
+
 ## Goals
  - Fully portable between Windows, OS X, Linux
  - Support for .dmf rev2 and rev3 files
 
-## Development
-Python?  Yet undecided.  Considering C++ as an alternative.
+## TODO
+ - Draft Class Hierarchy
 
-## Build
-See [Development](#Development)
+## Stretch Goals
+ - Support for all WinXP game files
 
