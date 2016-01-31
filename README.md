@@ -12,8 +12,11 @@ Inspired by:
  - Support for .dmf rev2 and rev3 files
 
 ## Development
-Python?  Yet undecided.  Considering C++ as an alternative.
+PyOpenGL framework (literally just for portability) __
+We will rebuild 
 
 ## Build
 See [Development](#Development)
 
+## TODO
+ - Draft Class Hierarchy
