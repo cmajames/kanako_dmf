@@ -8,8 +8,8 @@ Inspired by:
     - http://pastebin.com/CPk2Duhn
 
 ## Goals
-Fully portable between Windows, OS X, Linux
-Support for .dmf rev2 and rev3 files
+ - Fully portable between Windows, OS X, Linux
+ - Support for .dmf rev2 and rev3 files
 
 ## Development
 Python?  Yet undecided.  Considering C++ as an alternative.
