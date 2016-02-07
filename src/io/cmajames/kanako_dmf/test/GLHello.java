@@ -1,3 +1,13 @@
+/**
+ * Test class for JOGL
+ * From: https://sites.google.com/site/justinscsstuff/jogl-tutorial-3
+ * 
+ * @author CJ <cmajames@sdf.org>
+ * @added 2016-02-01
+ */
+
+package io.cmajames.kanako_dmf.test;
+
 import com.jogamp.opengl.*;
 import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.util.FPSAnimator;
