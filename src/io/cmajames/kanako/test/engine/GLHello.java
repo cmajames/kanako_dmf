@@ -6,7 +6,7 @@
  * @added 2016-02-01
  */
 
-package io.cmajames.kanako.engine.test;
+package io.cmajames.kanako.test.engine;
 
 import com.jogamp.opengl.*;
 import com.jogamp.opengl.awt.GLCanvas;

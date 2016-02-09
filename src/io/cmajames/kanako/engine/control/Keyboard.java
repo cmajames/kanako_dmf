@@ -2,9 +2,13 @@
  * KBM Controller Object
  * 
  * @author CJ <cmajames@sdf.org>
- * @added 2016-02-08
+ * @since 2016-02-08
  */
 
-public class Keyboard implements IController { }
+package io.cmajames.kanako.engine.control;
+
+public class Keyboard implements IController {
+    public class Settings extends IController.Settings { }
+}
 
 

@@ -2,10 +2,14 @@
  * Base interface for controller objects
  * 
  * @author CJ <cmajames@sdf.org> 
- * @added 2016-02-08
+ * @since 2016-02-08
  */ 
 
-public interface IController { }
+package io.cmajames.kanako.engine.control;
+
+public interface IController {
+    abstract class Settings { }
+}
 
 
 

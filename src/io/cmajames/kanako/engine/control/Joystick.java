@@ -2,10 +2,14 @@
  * Joystick controller object
  * 
  * @author CJ <cmajames@sdf.org>
- * @added 2016-02-08
+ * @since 2016-02-08
  */
 
-public class Joystick implements IController { }
+package io.cmajames.kanako.engine.control;
+
+public class Joystick implements IController {
+    public class Settings extends IController.Settings { }
+}
 
 
 
