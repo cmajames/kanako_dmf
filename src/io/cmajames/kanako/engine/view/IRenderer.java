@@ -7,7 +7,11 @@
 
 package io.cmajames.kanako.engine.view;
 
-public interface IRenderer { }
+import io.cmajames.kanako.engine.model.IRenderable;
+
+public interface IRenderer {
+    void addRenderable(IRenderable o);
+}
 
 
 
