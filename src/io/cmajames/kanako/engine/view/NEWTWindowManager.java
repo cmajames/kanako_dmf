@@ -7,9 +7,13 @@
 
 package io.cmajames.kanako.engine.view;
 
-import com.jogamp.newt.event.*;
+import com.jogamp.newt.event.KeyListener;
+import com.jogamp.newt.event.WindowListener;
 import com.jogamp.newt.opengl.GLWindow;
-import com.jogamp.opengl.*;
+import com.jogamp.opengl.GLCapabilities;
+import com.jogamp.opengl.GLCapabilitiesImmutable;
+import com.jogamp.opengl.GLEventListener;
+import com.jogamp.opengl.GLProfile;
 import com.jogamp.opengl.util.AnimatorBase;
 import com.jogamp.opengl.util.FPSAnimator;
 
@@ -17,20 +21,17 @@ public class NEWTWindowManager implements IWindowManager, Runnable {
     private static final GLProfile prof = GLProfile.getDefault();
     private static final GLCapabilitiesImmutable caps = new GLCapabilities(prof);
 
-    private AGLRenderer mRenderer;
     private GLWindow mWindow;
     private AnimatorBase mAnimator;
 
-    public NEWTWindowManager(AGLRenderer r, String title) {
-        this.mRenderer = r;
+    public NEWTWindowManager(AGLRenderer r, String title, int w, int h) {
         this.mWindow = GLWindow.create(caps);
         this.mAnimator = new FPSAnimator(this.mWindow, 60);
 
-        this.mWindow.setPosition(100, 100);
-        this.mWindow.setSize(100, 100);
+        this.mWindow.setSize(w, h);
         this.mWindow.setTitle(title);
 
-        this.attach(this.mRenderer);
+        this.attach(r);
     }
 
     public void attach(KeyListener l) {

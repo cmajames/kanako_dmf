@@ -10,13 +10,34 @@ import com.jogamp.newt.event.WindowEvent;
 import io.cmajames.kanako.engine.control.NEWTKeyboard;
 import io.cmajames.kanako.engine.model.IAction;
 import io.cmajames.kanako.engine.model.IControllable;
-import io.cmajames.kanako.engine.view.BlankGLRenderer;
 import io.cmajames.kanako.engine.view.NEWTWindowManager;
+import io.cmajames.kanako.test.engine.view.GLTriangleSpinRenderer;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class NEWTHello {
+    public static void main(String... args) {
+        Map<Short, TypeAction> actionMap = new HashMap<>();
+        for (char c = 'a'; c <= 'z'; c++) {
+            actionMap.put(NEWTKeyboard.getShortForChar(c), new TypeAction(c));
+        }
+
+        NEWTWindowManager wm = new NEWTWindowManager(new GLTriangleSpinRenderer(),
+                "NEWTHello", 300, 300);
+        IControllable c = new ControllableSystemOut();
+        NEWTKeyboard<TypeAction> kbd = new NEWTKeyboard<>(actionMap, c);
+
+        wm.attach(kbd);
+        wm.attach(new WindowAdapter() {
+            @Override
+            public void windowDestroyNotify(WindowEvent windowEvent) {
+                System.exit(0);
+            }
+        });
+        wm.run();
+    }
+
     public static class TypeAction implements IAction {
         private char data;
 
@@ -39,25 +60,5 @@ public class NEWTHello {
 
         @Override
         public void release(TypeAction a) {  }
-    }
-
-    public static void main(String... args) {
-        Map<Short, TypeAction> actionMap = new HashMap<>();
-        for (char c = 'a'; c <= 'z'; c++) {
-            actionMap.put(NEWTKeyboard.getShortForChar(c), new TypeAction(c));
-        }
-
-        NEWTWindowManager wm = new NEWTWindowManager(new BlankGLRenderer(),
-                "NEWTHello");
-        IControllable c = new ControllableSystemOut();
-        NEWTKeyboard<TypeAction> kbd = new NEWTKeyboard<>(wm, actionMap, c);
-
-        wm.attach(new WindowAdapter() {
-            @Override
-            public void windowDestroyNotify(WindowEvent windowEvent) {
-                System.exit(0);
-            }
-        });
-        wm.run();
     }
 }

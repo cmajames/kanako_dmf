@@ -11,12 +11,15 @@ import com.jogamp.newt.event.KeyEvent;
 import com.jogamp.newt.event.KeyListener;
 import io.cmajames.kanako.engine.model.IAction;
 import io.cmajames.kanako.engine.model.IControllable;
-import io.cmajames.kanako.engine.view.NEWTWindowManager;
 
 import java.util.Map;
 
 public class NEWTKeyboard<T extends IAction> extends AKeyboard<Short, T>
     implements KeyListener {
+    public NEWTKeyboard(Map<Short, T> map, IControllable c) {
+        super(map, c);
+    }
+
     public static short getShortForChar(char c) {
         switch (c) {
             case '1': return KeyEvent.VK_1;
@@ -115,22 +118,6 @@ public class NEWTKeyboard<T extends IAction> extends AKeyboard<Short, T>
             case 'Z': return KeyEvent.VK_Z;
             default:
                 throw new IllegalArgumentException("Unknown Char: " + c);
-        }
-    }
-
-    private NEWTWindowManager mWM;
-
-    public NEWTKeyboard(NEWTWindowManager p, Map<Short, T> map, IControllable c) {
-        this(p, map, c, true);
-    }
-
-    public NEWTKeyboard(NEWTWindowManager p, Map<Short, T> map, IControllable c,
-                        boolean doAttach) {
-        super(map, c);
-
-        this.mWM = p;
-        if (doAttach) {
-            this.mWM.attach(this);
         }
     }
 
